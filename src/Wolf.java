@@ -1,11 +1,6 @@
 import java.time.LocalDate;
 
-public class Wolf extends Predator implements Animal{
-    protected String breed;
-    protected String name;
-    protected Double cost;
-    protected String character;
-    protected LocalDate birthDate;
+public class Wolf extends Predator{
     public Wolf(String breed, String name, Double cost, String character, LocalDate birthDate) {
         this.breed = breed;
         this.name = name;

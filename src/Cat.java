@@ -1,11 +1,6 @@
 import java.time.LocalDate;
 
-public class Cat extends Pet implements Animal{
-    protected String breed;
-    protected String name;
-    protected Double cost;
-    protected String character;
-    protected LocalDate birthDate;
+public class Cat extends Pet{
     public Cat(String breed, String name, Double cost, String character, LocalDate birthDate) {
         this.breed = breed;
         this.name = name;
