@@ -1,2 +1,2 @@
-public abstract class Pet extends AbstractAnimal implements Animal{
+public abstract class Pet extends AbstractAnimal{
 }
