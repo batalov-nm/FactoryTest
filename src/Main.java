@@ -1,14 +1,14 @@
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
         CreateAnimalService af = new CreateAnimalServiceImpl();
-        af.createSpecificAnimal("Cat", "lizzo", 12.2, "funny", LocalDate.now());
-        af.createAnimalList(3, "Dog", "sas", 12.2, "funny", LocalDate.now());
-        af.createAnimalListWithRandomDates(3, "Dog", "bob", 12.2, "funny");
+        List<Animal> sussyAnimals = af.generateAnimals(10);
 
-//        SearchService ss = new SearchServiceImpl();
-//        ss.filterOlderThanAnimals(animList, 10);
+        SearchService ss = new SearchServiceImpl();
+
+        System.out.println(ss.findLeapYearNames(sussyAnimals));
     }
 }

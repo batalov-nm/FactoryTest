@@ -6,6 +6,7 @@ public class Wolf extends Predator{
         this.name = name;
         this.cost = cost;
         this.character = character;
+        this.birthDate = birthDate;
     }
 
     @Override
