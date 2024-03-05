@@ -1,8 +1,10 @@
+package org.example;
+
 import java.time.LocalDate;
 import java.util.Random;
 
 public class RandomDataGenerator {
-    public LocalDate createRandomBirthDate(){
+    public LocalDate createRandomBirthDate() {
         Random random = new Random();
 
         int minDay = (int) LocalDate.of(1900, 1, 1).toEpochDay();
@@ -22,15 +24,19 @@ public class RandomDataGenerator {
     public int getRandomNumber(int min, int max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
+
     public String createRandomBreed() {
         return availableBreeds.getAvailableBreed(getRandomNumber(0, availableBreeds.getAvailableBreedLength()));
     }
+
     public String createRandomName() {
         return availableNames.getAvailableName(getRandomNumber(0, availableNames.getAvailableNameLength()));
     }
+
     public Double createRandomCost() {
         return new Random().nextDouble();
     }
+
     public String createRandomCharacter() {
         return availableCharacters.getAvailableCharacter(getRandomNumber(0, availableCharacters.getAvailableCharactersLength()));
     }
@@ -38,30 +44,38 @@ public class RandomDataGenerator {
     private enum availableBreeds {
         CAT, DOG, SHARK, WOLF;
         private static final availableBreeds[] list = availableBreeds.values();
-        public static String getAvailableBreed(int i){
+
+        public static String getAvailableBreed(int i) {
             return list[i].toString();
         }
-        public static int getAvailableBreedLength(){
+
+        public static int getAvailableBreedLength() {
             return list.length;
         }
     }
+
     private enum availableNames {
         Ozon, Tolyan, OXOTA, Lizzo;
         private static final availableNames[] list = availableNames.values();
-        public static String getAvailableName(int i){
+
+        public static String getAvailableName(int i) {
             return list[i].toString();
         }
-        public static int getAvailableNameLength(){
+
+        public static int getAvailableNameLength() {
             return list.length;
         }
     }
+
     private enum availableCharacters {
         FUNNY, SUSSY, JUICY, MILKY;
         private static final availableCharacters[] list = availableCharacters.values();
-        public static String getAvailableCharacter(int i){
+
+        public static String getAvailableCharacter(int i) {
             return list[i].toString();
         }
-        public static int getAvailableCharactersLength(){
+
+        public static int getAvailableCharactersLength() {
             return list.length;
         }
     }
