@@ -14,12 +14,12 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
             case "wolf" -> new Wolf(breed, name, cost, character, birthDate);
             default -> throw new IllegalStateException("Unexpected value: " + breed.toLowerCase());
         };
-        System.out.println(
-                newAnimal.getBreed() + " / " +
-                        newAnimal.getName() + " / " +
-                        newAnimal.getCost() + " / " +
-                        newAnimal.getCharacter() + " / " +
-                        newAnimal.getBirthDate() + " / ");
+//        System.out.println(
+//                newAnimal.getBreed() + " / " +
+//                        newAnimal.getName() + " / " +
+//                        newAnimal.getCost() + " / " +
+//                        newAnimal.getCharacter() + " / " +
+//                        newAnimal.getBirthDate() + " / ");
         return newAnimal;
     }
     // почему-то не перегружается метод из интерфейса CreateAnimalService

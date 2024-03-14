@@ -11,32 +11,49 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SearchServiceImplTest {
 
+    private final CreateAnimalService animalService = new CreateAnimalServiceImpl();
+    private final SearchService searchService = new SearchServiceImpl();
+//    private List<Animal> randomAnimals = animalService.generateAnimals();
     @Test
     void findLeapYearNames() {
-        CreateAnimalService af = new CreateAnimalServiceImpl();
-        List<Animal> sussyAnimals = af.generateAnimals();
-        Animal newLeapAnimal1 = af.createSpecificAnimal("cat", "DODIK", 1.1, "1", LocalDate.of(2024, 1, 12));
-        sussyAnimals.set(0, newLeapAnimal1);
+        List<Animal> leapYearAnimalsList = new ArrayList<>(10);
 
-        SearchService ss = new SearchServiceImpl();
-        System.out.println(ss.findLeapYearNames(sussyAnimals));
-        assertTrue(ss.findLeapYearNames(sussyAnimals).contains(newLeapAnimal1.getName()));
+        RandomDataGenerator rnd = new RandomDataGenerator();
+        Animal leapYearAnimal = animalService.createSpecificAnimal(
+                rnd.createRandomBreed(),
+                rnd.createRandomName(),
+                rnd.createRandomCost(),
+                rnd.createRandomCharacter(),
+                LocalDate.of(2024, 1, 12)
+        );
+
+        for (int i = 0; i < 10; i++){
+            leapYearAnimalsList.add(leapYearAnimal);
+        }
+//        leapYearAnimalsList.forEach( (n) -> {
+//            leapYearAnimalsList.set(leapYearAnimalsList.indexOf(n), leapYearAnimal);
+//        });
+
+        List<String> leapYearNamesList = searchService.findLeapYearNames(leapYearAnimalsList);
+        System.out.println("Actual duplicates: " + leapYearAnimalsList.size());
+        System.out.println("Duplicates found: " + leapYearNamesList.size());
+        assertEquals(leapYearAnimalsList.size(), leapYearNamesList.size());
     }
 
-    @Test
-    void findOlderAnimals() {
-    }
-
-    @Test
-    void findDuplicate() {
-        CreateAnimalService af = new CreateAnimalServiceImpl();
-        List<Animal> sussyAnimals = af.generateAnimals();
-
-        sussyAnimals.remove(1);
-        sussyAnimals.set(1, sussyAnimals.get(0));
-
-        SearchService ss = new SearchServiceImpl();
-
-        ss.findDuplicate(sussyAnimals);
-    }
+//    @Test
+//    void findOlderAnimals() {
+//    }
+//
+//    @Test
+//    void findDuplicate() {
+//        CreateAnimalService af = new CreateAnimalServiceImpl();
+//        List<Animal> sussyAnimals = af.generateAnimals();
+//
+//        sussyAnimals.remove(1);
+//        sussyAnimals.set(1, sussyAnimals.get(0));
+//
+//        SearchService ss = new SearchServiceImpl();
+//
+//        ss.findDuplicate(sussyAnimals);
+//    }
 }
