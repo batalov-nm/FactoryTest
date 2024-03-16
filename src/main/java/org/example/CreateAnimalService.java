@@ -11,7 +11,18 @@ public interface CreateAnimalService {
         List<Animal> newAnimalList = new ArrayList<>(10);
         RandomDataGenerator rnd = new RandomDataGenerator();
 
-        for (int i = 0; i < 10; i++) {
+//        for (int i = 0; i < 10; i++) {
+//            Animal newAnimal = createSpecificAnimal(
+//                    rnd.createRandomBreed(),
+//                    rnd.createRandomName(),
+//                    rnd.createRandomCost(),
+//                    rnd.createRandomCharacter(),
+//                    rnd.createRandomBirthDate());
+//
+//            newAnimalList.add(newAnimal);
+//        }
+        int i = 0;
+        while (i<10) {
             Animal newAnimal = createSpecificAnimal(
                     rnd.createRandomBreed(),
                     rnd.createRandomName(),
@@ -20,8 +31,9 @@ public interface CreateAnimalService {
                     rnd.createRandomBirthDate());
 
             newAnimalList.add(newAnimal);
+            i++;
         }
-        System.out.println(newAnimalList);
+
         return newAnimalList;
     }
 }

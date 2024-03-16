@@ -30,8 +30,8 @@ class EqualsTest {
     @ParameterizedTest(name = "Test number: {0}")
     @MethodSource("getPetInfo")
     void EqualsReflexiveTest(int testNumber, String  breed, String name, String cost, String character, LocalDate date) {
-        System.out.println("ANIMAL(X): ");
         Animal newAnimalX = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
+        System.out.println("ANIMAL(X): " + newAnimalX);
 
         assertTrue(newAnimalX.equals(newAnimalX));
         System.out.println("x.equals(x) is true" + "\n");
@@ -40,11 +40,11 @@ class EqualsTest {
     @ParameterizedTest(name = "Test number: {0}")
     @MethodSource("getPetInfo")
     void EqualsSymmetricTest(int testNumber, String  breed, String name, String cost, String character, LocalDate date) {
-        System.out.println("ANIMAL(X): ");
         Animal newAnimalX = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
-        System.out.println("ANIMAL(Y): ");
+        System.out.println("ANIMAL(X): " + newAnimalX);
         Animal newAnimalY = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
-        // Работает некорректно. Не знаю как исправить
+        System.out.println("ANIMAL(Y): " + newAnimalY);
+        //fixme Работает некорректно. Не знаю как исправить
         // Поступет стрим с полями класса и создаются два разных объекта с одинаковыми полями
         // Предполагаю, что нужно сделать сдвиг, чтобы в ANIMAL(X) поступали аргументы n, а в ANIMAL(Y) поступали аргументы n+1
        assertTrue(newAnimalX.equals(newAnimalY));
@@ -53,15 +53,17 @@ class EqualsTest {
 
     @ParameterizedTest(name = "Test number: {0}")
     @MethodSource("getPetInfo")
-    public void EqualsTransitiveTest(int testNumber, String  breed, String name, String cost, String character, LocalDate date) { // Как ПО УМУ добавить больше тестовых сценариев, потому что просто копировать код выглядит как плохая идея
-        System.out.println("ANIMAL(X): ");
+    public void EqualsTransitiveTest(int testNumber, String  breed, String name, String cost, String character, LocalDate date) {
         Animal newAnimalX = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
-        System.out.println("ANIMAL(Y): ");
-        Animal newAnimalY = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
-        System.out.println("ANIMAL(Z): ");
-        Animal newAnimalZ = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
+        System.out.println("ANIMAL(X): " + newAnimalX);
 
-        // Точно такая же проблема, как и прошлом тесте
+        Animal newAnimalY = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
+        System.out.println("ANIMAL(Y): " + newAnimalY);
+
+        Animal newAnimalZ = animalService.createSpecificAnimal(breed, name, Double.valueOf(cost), character, date);
+        System.out.println("ANIMAL(Z): " + newAnimalZ);
+
+        // fixme Точно такая же проблема, как и прошлом тесте
         assertTrue(newAnimalX.equals(newAnimalY));
         assertTrue(newAnimalY.equals(newAnimalZ));
         assertTrue(newAnimalX.equals(newAnimalZ));

@@ -23,21 +23,39 @@ public class CreateAnimalServiceImpl implements CreateAnimalService {
         return newAnimal;
     }
     // почему-то не перегружается метод из интерфейса CreateAnimalService
-//    public List<Animal> generateAnimals(int N) {
-//        List<Animal> newAnimalList = new ArrayList<>(N);
-//        RandomDataGenerator rnd = new RandomDataGenerator();
-//
-//        for (int i = 0; i < N; i++) {
-//            Animal newAnimal = createSpecificAnimal(
-//                    rnd.createRandomBreed(),
-//                    rnd.createRandomName(),
-//                    rnd.createRandomCost(),
-//                    rnd.createRandomCharacter(),
-//                    rnd.createRandomBirthDate());
-//
-//            newAnimalList.add(newAnimal);
-//        }
-//        System.out.println(newAnimalList);
-//        return newAnimalList;
-//    }
+    public List<Animal> generateAnimals(int N) {
+        List<Animal> newAnimalList = new ArrayList<>(N);
+        RandomDataGenerator rnd = new RandomDataGenerator();
+
+        for (int i = 0; i < N; i++) {
+            Animal newAnimal = createSpecificAnimal(
+                    rnd.createRandomBreed(),
+                    rnd.createRandomName(),
+                    rnd.createRandomCost(),
+                    rnd.createRandomCharacter(),
+                    rnd.createRandomBirthDate());
+
+            newAnimalList.add(newAnimal);
+        }
+        return newAnimalList;
+    }
+    @Override
+    public List<Animal> generateAnimals(){
+        List<Animal> newAnimalList = new ArrayList<>(10);
+        RandomDataGenerator rnd = new RandomDataGenerator();
+        int i = 0;
+        do {
+            Animal newAnimal = createSpecificAnimal(
+                    rnd.createRandomBreed(),
+                    rnd.createRandomName(),
+                    rnd.createRandomCost(),
+                    rnd.createRandomCharacter(),
+                    rnd.createRandomBirthDate());
+
+            newAnimalList.add(newAnimal);
+            i++;
+        }while (i<10);
+
+        return newAnimalList;
+    }
 }

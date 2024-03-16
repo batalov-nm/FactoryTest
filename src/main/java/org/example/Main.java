@@ -5,20 +5,15 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        CreateAnimalService af = new CreateAnimalServiceImpl();
-        List<Animal> sussyAnimals = af.generateAnimals();
-
-        sussyAnimals.remove(1);
-        sussyAnimals.set(1, sussyAnimals.get(0));
-
-        System.out.println("EQUALS: " + sussyAnimals.get(3).equals(sussyAnimals.get(5)));
-        System.out.println("EQUALS: " + sussyAnimals.get(0).equals(sussyAnimals.get(1)));
-
+        CreateAnimalService as = new CreateAnimalServiceImpl();
+        List<Animal> newTenAnimalsList = as.generateAnimals();
+//        List<Animal> newNAnimalsList = as.generateAnimals(15); // fixme не перегружается метод в CreateAnimalServiceImpl
 
         SearchService ss = new SearchServiceImpl();
 
-        System.out.println(ss.findLeapYearNames(sussyAnimals));
-        System.out.println(ss.findDuplicate(sussyAnimals));
-        System.out.println(ss.findOlderAnimals(sussyAnimals, 40));
+        System.out.println(newTenAnimalsList);
+        System.out.println(ss.findLeapYearNames(newTenAnimalsList));
+        System.out.println(ss.findDuplicate(newTenAnimalsList));
+        System.out.println(ss.findOlderAnimals(newTenAnimalsList, 40));
     }
 }

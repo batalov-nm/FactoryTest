@@ -40,7 +40,6 @@ public class SearchServiceImpl implements SearchService {
             } else {
                 findDuplicatesSet.add(i);
             }
-//        System.out.println(findDuplicateList);
         return findDuplicateList;
     }
 }
