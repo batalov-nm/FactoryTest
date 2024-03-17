@@ -5,9 +5,9 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        CreateAnimalService as = new CreateAnimalServiceImpl();
+        CreateAnimalServiceImpl as = new CreateAnimalServiceImpl();
         List<Animal> newTenAnimalsList = as.generateAnimals();
-//        List<Animal> newNAnimalsList = as.generateAnimals(15); // fixme не перегружается метод в CreateAnimalServiceImpl
+        List<Animal> newNAnimalsList = as.generateAnimals(15);
 
         SearchService ss = new SearchServiceImpl();
 
