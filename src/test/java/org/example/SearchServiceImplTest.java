@@ -47,10 +47,12 @@ class SearchServiceImplTest {
         List<String> leapYearNamesList = searchService.findLeapYearNames(leapYearAnimalsList);
 
         System.out.println("Test number: " + testNumber);
-        System.out.println("Actual duplicates: " + leapYearAnimalsList.size());
-        System.out.println("Duplicates found: " + leapYearNamesList.size() + "\n");
+        System.out.println("Animals overall: " + leapYearAnimalsList);
+        System.out.println("Born in a leap year: " + leapYearNamesList + "\n");
 
-        assertEquals(leapYearAnimalsList.size(), leapYearNamesList.size());
+        for (int i = 0; i < leapYearAnimalsList.size(); i++) {
+            assertEquals(leapYearAnimalsList.get(i).getName(), leapYearNamesList.get(i));
+        }
     }
 
     @ParameterizedTest(name = "Test number: {0}")
@@ -62,12 +64,22 @@ class SearchServiceImplTest {
 
         int randomAge = new Random().nextInt(50);
 
-        List<Animal> returnList = searchService.findOlderAnimals(newAnimalList, randomAge);
+        List<Animal> actualAnimalList = searchService.findOlderAnimals(newAnimalList, randomAge);
+        List<Animal> expectedAnimalList = new ArrayList<>();
+
+        for (Animal someAnimal : newAnimalList){
+            int animalAge = LocalDate.now().getYear() - someAnimal.getBirthDate().getYear();
+            if (animalAge>=randomAge){
+                expectedAnimalList.add(someAnimal);
+            }
+        }
 
         System.out.println("Test number: " + testNumber + " (age: >" + randomAge + ")");
-        System.out.println("Initial list: " + newAnimalList);
-        System.out.println("Older animals: " + returnList + "\n");
-//        assertEquals(); // fixme Какой из параметров можно сравнить, чтобы это имело смысл?
+        System.out.println("Expected list: " + expectedAnimalList);
+        System.out.println("Actual list: " + actualAnimalList + "\n");
+        for (int i = 0; i < expectedAnimalList.size(); i++) {
+            assertEquals(expectedAnimalList.get(i), actualAnimalList.get(i));
+        }
     }
 
     @ParameterizedTest(name = "Test number: {0}")
