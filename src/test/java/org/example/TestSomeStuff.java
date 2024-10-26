@@ -10,4 +10,9 @@ public class TestSomeStuff {
     public void youNeedAnotherTest() {
         // ha ha ha
     }
+
+    @Test
+    public void kanyeSong() {
+        System.out.println("I don't say she is a gold digga!");
+    }
 }
