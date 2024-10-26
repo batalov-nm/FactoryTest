@@ -8,6 +8,12 @@ public class TestSomeStuff {
 
     @Test
     public void doSomeStuff() {
-        // kek
+
+        //no need to kek
+    }
+
+    @Test
+    public void doOtherStuff() {
+        // sas
     }
 }
