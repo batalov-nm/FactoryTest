@@ -12,14 +12,13 @@ public class TestSomeStuff {
     }
 
     @Test
-    public void doSomeStuff() {
-
-        //no need to kek
+    public void youNeedAnotherTest() {
+        // ha ha ha
     }
 
     @Test
-    public void doOtherStuff() {
-        // sas
+    public void kanyeSong() {
+        System.out.println("I don't say she is a gold digga!");
     }
 
     @Test
