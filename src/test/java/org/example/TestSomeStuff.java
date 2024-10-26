@@ -17,6 +17,11 @@ public class TestSomeStuff {
     }
 
     @Test
+    public void kanyeSong() {
+        System.out.println("I don't say she is a gold digga!");
+    }
+
+    @Test
     public void moreStuff() {
         System.out.println("More stuff!");
     }
