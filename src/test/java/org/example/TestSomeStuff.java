@@ -12,14 +12,8 @@ public class TestSomeStuff {
     }
 
     @Test
-    public void doSomeStuff() {
-
-        //no need to kek
-    }
-
-    @Test
-    public void doOtherStuff() {
-        // sas
+    public void youNeedAnotherTest() {
+        // ha ha ha
     }
 
     @Test
