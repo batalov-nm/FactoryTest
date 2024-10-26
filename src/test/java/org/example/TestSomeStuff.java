@@ -7,6 +7,11 @@ public class TestSomeStuff {
     // also some stuff
 
     @Test
+    public void forgotToAddThese() {
+        // am i late?
+    }
+
+    @Test
     public void doSomeStuff() {
 
         //no need to kek
@@ -15,5 +20,10 @@ public class TestSomeStuff {
     @Test
     public void doOtherStuff() {
         // sas
+    }
+
+    @Test
+    public void moreStuff() {
+        System.out.println("More stuff!");
     }
 }
